@@ -2,26 +2,39 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import QuestionsContainer from "./components/QuestionsContainer";
+import questionsData from "./Data/questionsData";
+import { randomTopChoice, shuffle } from "./Data/functions";
+// import QuestionsMap from "./components/QuestionsMap";
+import HogwartsHouse from "./components/HogwartsHouse";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       displayWelcome: true,
-      answers: {
-        q0: "Grif",
-        q1: "Raven",
-        q2: "Raven",
-        q3: "Raven",
-        q4: "Raven",
-        q5: "Raven"
-      },
-      house: undefined
+      answers: [
+        "Gryffindor",
+        "Gryffindor",
+        "Gryffindor",
+        "Slytherin",
+        "Slytherin",
+        "Slytherin"
+      ],
+      house: undefined,
+      questionsData: [{ question: "", answers: [[]] }]
     };
   }
 
-  handleWelcome = () => {
-    this.setState({ displayWelcome: !this.state.displayWelcome });
+  componentDidMount = () => {
+    let shuffledData = questionsData.map(item => {
+      item.answers = shuffle(item.answers);
+      return item;
+    });
+    this.setState({ questionsData: shuffledData });
+  };
+
+  toggle = e => {
+    this.setState({ [e.target.name]: !this.state[e.target.name] });
   };
 
   handleRadio = e => {
@@ -31,34 +44,11 @@ class App extends Component {
   };
 
   sort = () => {
-    let { answers } = this.state;
-    let count = {};
-
-    for (let i = 0; i < Object.keys(answers).length; i++) {
-      count.hasOwnProperty(answers["q" + i])
-        ? count[answers["q" + i]]++
-        : (count[answers["q" + i]] = 1);
-    }
-
-    let countArray = Object.entries(count);
-    countArray.sort((a, b) => (a[1] > b[1] ? -1 : 1));
-
-    let topScore = countArray[0][1];
-    let topArray = [];
-    for (let i = 0; i < countArray.length; i++) {
-      if (countArray[i][1] === topScore) {
-        topArray.push(countArray[i]);
-      } else {
-        break;
-      }
-    }
-
-    let rand = topArray[Math.floor(Math.random() * topArray.length)];
-    this.setState({ house: rand[0] });
+    let rand = randomTopChoice(this.state.answers);
+    this.setState({ house: rand });
   };
 
   render() {
-    const { answers } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -76,29 +66,19 @@ class App extends Component {
           button 3
         </button>
 
-        <button onClick={this.handleWelcome}>Click to go Back</button>
+        <button name="displayWelcome" value="" onClick={this.toggle}>
+          Click to go Back
+        </button>
 
         <QuestionsContainer
           answers={this.state.answers}
           handleRadio={this.handleRadio}
           className={!this.state.displayWelcome ? "basket hide" : "basket red"}
+          questionsData={this.state.questionsData}
+          sort={this.sort}
         />
-        <button
-          className={
-            answers.q0 &&
-            answers.q1 &&
-            answers.q2 &&
-            answers.q3 &&
-            answers.q4 &&
-            answers.q5
-              ? "basket"
-              : "basket hide"
-          }
-          onClick={this.sort}
-        >
-          SORT!!!
-        </button>
-        <div>{this.state.house && `You are a ${this.state.house}`}</div>
+
+        <HogwartsHouse house={this.state.house} />
       </div>
     );
   }
