@@ -7,7 +7,7 @@ export default (props) => {
     <div>
       {(props.AnswerArray).map((item, index) => {
         return (
-          <div key={item[0]}>
+          <div key={index}>
           <span>{index+1}: </span>
              <label>
               <input

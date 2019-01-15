@@ -3,15 +3,19 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  animation: App-logo-spin infinite 10s linear;
+  height: 130px;
 }
 
 .App-header {
-  background-color: #222;
+  background-color:gray;
   height: 150px;
   padding: 20px;
   color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .App-title {
@@ -23,17 +27,25 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .basket {
-  transition: opacity 0.5s;
+  transition: opacity 1s;
   opacity: 1;
 }
 .basket.hide {
   opacity: 0;
-  pointer-events:none;
+  pointer-events: none;
+}
+
+.displayNone {
+  display: none;
 }
 
 .red {
@@ -42,4 +54,58 @@
 
 .blue {
   border: 1px dotted blue;
+}
+
+.houses {
+  width: 50%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/*
+#animation {
+  opacity: 0;
+  animation: fadeIn 1s ease-in both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+} */
+
+.questionsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.questionsWidth {
+  max-width: 800px;
+  border: 1px solid red;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+
+.flexChild {
+  min-width: 40%;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.house {
+  width: 35%;
+}
+
+button {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  margin: 1rem;
 }

@@ -6,10 +6,10 @@ import AnswerChoices from "./AnswerChoices";
 
 const QuestionsMap = props => {
   return (
-    <div>
+    <div className="questionsContainer">
       {props.questionsData.map((item, index) => (
-        <div key={item.question} className="blue">
-          {item.question}
+        <div key={item.question} className="blue flexChild">
+          {item.question.split ('\n').map ((item, i) => <div key={i}>{item}</div>)}
           <form>
             <AnswerChoices
               AnswerArray={item.answers}
@@ -21,7 +21,7 @@ const QuestionsMap = props => {
         </div>
       ))}
 
-      
+
     </div>
   );
 };

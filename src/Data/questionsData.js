@@ -2,28 +2,28 @@ const questionsData = [
   {
     question: "What would you want to be remembered as?",
     answers: [
-      ["Gryffindor", "Wise"],
+      ["Gryffindor", "Bold"],
       ["Slytherin", "Great"],
-      ["Hufflepuff", "Bold"],
+      ["Hufflepuff", "Wise"],
       ["Ravenclaw", "Good"]
     ]
   },
   {
     question: "What would you not want to be remembered as?",
     answers: [
-      ["Gryffindor", "Ignorant"],
-      ["Slytherin", "Cowardly"],
-      ["Hufflepuff", "Ordinary"],
-      ["Ravenclaw", "Selfish"]
+      ["Gryffindor", "Cowardly"],
+      ["Slytherin", "Ordinary"],
+      ["Hufflepuff", "Selfish"],
+      ["Ravenclaw", "Ignorant"]
     ]
   },
   {
     question: "If you were to choose a potion, which would you choose?",
     answers: [
-      ["Gryffindor", "A Power Potion"],
-      ["Slytherin", "A Love Potion"],
-      ["Hufflepuff", "A Wisdom Potion"],
-      ["Ravenclaw", "A Glory Potion"]
+      ["Gryffindor", "A Glory Potion"],
+      ["Slytherin", "A Power Potion"],
+      ["Hufflepuff", "A Love Potion"],
+      ["Ravenclaw", "A Wisdom Potion"]
     ]
   },
   {
@@ -31,8 +31,8 @@ const questionsData = [
     answers: [
       ["Gryffindor", "Ask for more stories of your adventures"],
       ["Slytherin", "Opinion only matters when I'm Alive"],
-      ["Hufflepuff", "Think of your achievments"],
-      ["Ravenclaw", "Miss you and smile"]
+      ["Hufflepuff", "Miss you and smile"],
+      ["Ravenclaw", "Think of your achievments"]
     ]
   },
   {
@@ -45,12 +45,17 @@ const questionsData = [
     ]
   },
   {
-    question: `You are given four boxes but only allowed to open one. The first is an ornate golden box which says, "unbearable temptation lies within". The second is a black box with a rune you know to be the mark of Merlin. The third is a tortoise shell box in which a small animal seems to be squeaking inside. The fourth is a pewter box that reads, "I only open for the worthy." Which box do you select?`,
+    question: `You are given four boxes but only allowed to open one.
+    \nThe first is an ornate golden box which says, "unbearable temptation lies within".
+    \nThe second is a black box with a rune you know to be the mark of Merlin.
+    \nThe third is a tortoise shell box in which an animal seems to be squeaking inside.
+    \nThe fourth is a pewter box that reads, "I only open for the worthy."
+    \nWhich box do you select?`,
     answers: [
-      ["Gryffindor", "Unbearable Temptation"],
-      ["Slytherin", "Mark of Merlin"],
+      ["Gryffindor", "Only opens for the worthy"],
+      ["Slytherin", "Unbearable Temptation"],
       ["Hufflepuff", "Animal Squeaking Inside"],
-      ["Ravenclaw", "Only opens for the wortht"]
+      ["Ravenclaw", "Mark of Merlin"]
     ]
   }
 ];
